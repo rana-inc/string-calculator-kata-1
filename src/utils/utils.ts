@@ -2,6 +2,7 @@ export const add = (numbers: string): number => {
   if (numbers.length === 0) return 0;
 
   let numbersArr: Array<string> = [];
+  const negativeNumbers: Array<string> = [];
 
   if (numbers.startsWith("//")) {
     const endIndex = numbers.indexOf("\n");
@@ -15,8 +16,14 @@ export const add = (numbers: string): number => {
   }
 
   const sum = numbersArr.reduce((prevValue, currentValue) => {
+    if (parseInt(currentValue) < 0) {
+      negativeNumbers.push(currentValue);
+    }
     return prevValue + parseInt(currentValue);
   }, 0);
 
+  if (negativeNumbers.length > 0) {
+    throw new Error(`Negative numbers not allowed ${[...negativeNumbers]}`);
+  }
   return sum;
 };
