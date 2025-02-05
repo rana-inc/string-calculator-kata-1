@@ -16,4 +16,8 @@ describe("String Calculator", () => {
   it("should return number itself for single number", () => {
     expect(add("10")).toEqual(10);
   });
+
+  it("should return sum of two comma seperated numbers", () => {
+    expect(add("10,40")).toEqual(50);
+  });
 });
