@@ -21,7 +21,11 @@ describe("String Calculator", () => {
     expect(add("10,40")).toEqual(50);
   });
 
-  it("should able handle any amount of numbers and return there sum", () => {
+  it("should able to handle any amount of numbers and return there sum", () => {
     expect(add("10,20,30")).toBe(60);
+  });
+
+  it("should able to handle new lines between numbers", () => {
+    expect(add("1\n2,3")).toBe(6);
   });
 });
