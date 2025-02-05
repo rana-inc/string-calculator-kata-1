@@ -1,3 +1,6 @@
+const escapeRegex = (str: string) =>
+  str.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+
 export const add = (numbers: string): number => {
   if (numbers.length === 0) return 0;
 
@@ -8,7 +11,8 @@ export const add = (numbers: string): number => {
     const endIndex = numbers.indexOf("\n");
     const delimiter = numbers.substring(2, endIndex);
     const numStr = numbers.slice(endIndex + 1);
-    const regex = new RegExp(`${delimiter}|\\n`);
+    const escapedDelimiter = escapeRegex(delimiter);
+    const regex = new RegExp(`${escapedDelimiter}|\\n`);
     numbersArr = numStr.split(regex);
   } else {
     const regex = new RegExp(`,|\\n`);
