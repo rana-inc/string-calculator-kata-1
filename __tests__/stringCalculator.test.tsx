@@ -12,4 +12,8 @@ describe("String Calculator", () => {
   it("should return 0 for an empty string", () => {
     expect(add("")).toEqual(0);
   });
+
+  it("should return number itself for single number", () => {
+    expect(add("10")).toEqual(10);
+  });
 });
