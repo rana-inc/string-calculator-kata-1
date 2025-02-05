@@ -20,4 +20,8 @@ describe("String Calculator", () => {
   it("should return sum of two comma seperated numbers", () => {
     expect(add("10,40")).toEqual(50);
   });
+
+  it("should able handle any amount of numbers and return there sum", () => {
+    expect(add("10,20,30")).toBe(60);
+  });
 });
